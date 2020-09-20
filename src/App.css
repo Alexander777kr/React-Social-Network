@@ -17,28 +17,3 @@ ul li {
   width: 1200px;
   margin: 0 auto;
 }
-
-.nav {
-  grid-area: n;
-  background-color: burlywood;
-}
-
-.header {
-  grid-area: h;
-  background-color: green;
-}
-
-.header img {
-  width: 80px;
-}
-
-.content {
-  grid-area: c;
-  background-color: cornflowerblue;
-}
-
-.content img {
-  width: 100%;
-  height: 200px;
-  margin: 0 auto;
-}
