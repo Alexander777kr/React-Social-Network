@@ -7,7 +7,12 @@
   padding: 10px;
 }
 
-.dialogsItems .active {
+.dialogsItems a {
+  color: white;
+  text-decoration: none;
+}
+
+.dialogsItems a.active {
   color: gold;
 }
 
@@ -16,7 +21,13 @@
 
 .messages {
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .message {
+  color: white;
+  min-width: 50%;
 }
