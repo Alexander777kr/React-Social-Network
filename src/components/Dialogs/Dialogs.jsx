@@ -12,13 +12,12 @@ const Dialogs = ({ state, ...props }) => {
   ));
   let newMessage = React.createRef();
   let addMessage = () => {
-    let message = newMessage.current.value;
-    props.addMessage();
+    props.dispatch({ type: 'ADD-MESSAGE' });
   };
 
   let updateTextareaField = () => {
     let message = newMessage.current.value;
-    props.updateMessage(message);
+    props.dispatch({ type: 'UPDATE-MESSAGE', message: message });
   };
 
   return (
