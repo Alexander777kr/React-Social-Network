@@ -11,7 +11,6 @@ const Dialogs = ({ state, ...props }) => {
     <Message message={m.message} />
   ));
   let newMessage = React.createRef();
-
   let addMessage = () => {
     let message = newMessage.current.value;
     props.addMessage();
@@ -20,7 +19,6 @@ const Dialogs = ({ state, ...props }) => {
   let updateTextareaField = () => {
     let message = newMessage.current.value;
     props.updateMessage(message);
-    console.log(message);
   };
 
   return (
