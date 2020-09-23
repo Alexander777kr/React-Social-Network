@@ -2,9 +2,10 @@ import React from 'react';
 import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 import Friend from './Friend/Friend';
+import StoreContext from '../../StoreContext';
 
-const Navbar = ({ state }) => {
-  const friendsList = state.friends.map((friend) => <Friend friend={friend} />);
+const Navbar = () => {
+  //const friendsList = state.friends.map((friend) => <Friend friend={friend} />);
   return (
     <nav className={s.nav}>
       <ul>
@@ -35,7 +36,7 @@ const Navbar = ({ state }) => {
         </li>
         <li className={s.item}>
           <h3>Friends</h3>
-          {friendsList}
+          {/* {friendsList} */}
         </li>
       </ul>
     </nav>
