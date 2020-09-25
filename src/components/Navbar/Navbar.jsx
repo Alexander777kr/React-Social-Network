@@ -35,6 +35,11 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className={s.item}>
+          <NavLink to="/users" activeClassName={s.activeLink}>
+            Users
+          </NavLink>
+        </li>
+        <li className={s.item}>
           <h3>Friends</h3>
           {/* {friendsList} */}
         </li>
