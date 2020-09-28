@@ -2,6 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 import mainLogo from '../../../assets/images/main-logo.jpg';
 import Preloader from '../../common/Preloader/Preloader';
+import avatar from '../../../assets/images/avatar.png';
 
 const ProfileInfo = (props) => {
   console.log(props);
@@ -10,7 +11,9 @@ const ProfileInfo = (props) => {
   }
   const contacts = [];
   for (const [key, value] of Object.entries(props.profile.contacts)) {
-    contacts.push(`${key}: ${value ? value : '-'}`);
+    if (value) {
+      contacts.push(`${key}: ${value}`);
+    }
   }
   return (
     <div>
@@ -18,9 +21,16 @@ const ProfileInfo = (props) => {
         <img src={mainLogo} width="100%" height="200px" />
       </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
+        <img
+          src={props.profile.photos.large ? props.profile.photos.large : avatar}
+          className={s.margin}
+          width="300"
+          height="300"
+        />
         <div>
-          <span className={s.bold}>Обо мне</span>: {props.profile.aboutMe}
+          {props.profile.aboutMe ? (
+            <span className={s.bold}>Обо мне: {props.profile.aboutMe}</span>
+          ) : null}
         </div>
         <div>
           <span className={s.bold}>Полное имя</span>: {props.profile.fullName}
@@ -32,7 +42,9 @@ const ProfileInfo = (props) => {
             : 'Не ищу работу'}
         </div>
         <div>
-          Контакты:
+          {contacts.length > 0 ? (
+            <div className={`${s.bold} ${s.margin}`}>Контакты:</div>
+          ) : null}
           {contacts.map((contact) => (
             <div>{contact}</div>
           ))}
