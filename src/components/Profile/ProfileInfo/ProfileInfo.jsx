@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 import mainLogo from '../../../assets/images/main-logo.jpg';
 import Preloader from '../../common/Preloader/Preloader';
 import avatar from '../../../assets/images/avatar.png';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
   console.log(props);
@@ -17,9 +18,9 @@ const ProfileInfo = (props) => {
   }
   return (
     <div>
-      <div>
+      {/*<div>
         <img src={mainLogo} width="100%" height="200px" />
-      </div>
+      </div> */}
       <div className={s.descriptionBlock}>
         <img
           src={props.profile.photos.large ? props.profile.photos.large : avatar}
@@ -27,6 +28,7 @@ const ProfileInfo = (props) => {
           width="300"
           height="300"
         />
+        <ProfileStatus status="Hello my friends" />
         <div>
           {props.profile.aboutMe ? (
             <span className={s.bold}>Обо мне: {props.profile.aboutMe}</span>
