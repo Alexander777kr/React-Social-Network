@@ -4,9 +4,11 @@ import s from './ProfileInfo.module.css';
 class ProfileStatus extends Component {
   state = {
     editMode: false,
+    status: this.props.status,
   };
 
   activateEditMode = () => {
+    debugger;
     this.setState({
       editMode: true,
     });
@@ -16,7 +18,22 @@ class ProfileStatus extends Component {
     this.setState({
       editMode: false,
     });
+    this.props.updateStatus(this.state.status);
   };
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.target.value,
+    });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status,
+      });
+    }
+  }
 
   render() {
     return (
@@ -24,17 +41,18 @@ class ProfileStatus extends Component {
         {!this.state.editMode && (
           <div>
             <span onDoubleClick={this.activateEditMode}>
-              {this.props.status}
+              {this.props.status || 'Нет статуса'}
             </span>
           </div>
         )}
         {this.state.editMode && (
           <div>
             <input
+              onChange={this.onStatusChange}
               autoFocus={true}
               onBlur={this.deactivateEditMode}
               type="text"
-              value={this.props.status}
+              value={this.state.status}
             />
           </div>
         )}

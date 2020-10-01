@@ -6,7 +6,6 @@ import avatar from '../../../assets/images/avatar.png';
 import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
-  console.log(props);
   if (!props.profile) {
     return <Preloader />;
   }
@@ -28,7 +27,10 @@ const ProfileInfo = (props) => {
           width="300"
           height="300"
         />
-        <ProfileStatus status="Hello my friends" />
+        <ProfileStatus
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
         <div>
           {props.profile.aboutMe ? (
             <span className={s.bold}>Обо мне: {props.profile.aboutMe}</span>
